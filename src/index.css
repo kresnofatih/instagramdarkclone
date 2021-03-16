@@ -1,4 +1,21 @@
+* {
+  margin: 0;
+}
+
 body {
+  --ig-yellow: #ffdc80;
+  --ig-lorange: #fcaf45;
+  --ig-dorange: #f77737;
+  --ig-lred: #f56040;
+  --ig-dred: #fd1d1d;
+  --ig-lpurple: #e1306c;
+  --ig-purple: #c13584;
+  --ig-dpurple: #833ab4;
+  --ig-ddpurple: #5851db;
+  --ig-ddgray: #1f1f1f;
+  --ig-dgray: #262626;
+  overflow: hidden;
+
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
