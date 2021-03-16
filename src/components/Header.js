@@ -6,6 +6,7 @@ import ExploreIcon from '@material-ui/icons/Explore';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
 
 function Header() {
     return (
@@ -18,6 +19,7 @@ function Header() {
                     <NotificationsIcon/>
                     <BookmarkBorderIcon/>
                     <FavoriteBorderIcon/>
+                    <PersonOutlineOutlinedIcon/>
                 </HeaderRight>
             </HeaderContainer>
         </HeaderObject>

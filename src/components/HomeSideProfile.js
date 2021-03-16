@@ -24,7 +24,7 @@ export default HomeSideProfile
 
 const HomeSideProfileContainer = styled.div`
     padding: 10px 0;
-    background-color: var(--ig-ddpurple);
+    background-color: var(--ig-ddgray);
     display: flex;
     justify-content: space-between;
     align-items: center;

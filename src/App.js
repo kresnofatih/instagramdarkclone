@@ -2,12 +2,20 @@ import React from 'react';
 import './App.css';
 import styled from 'styled-components'
 import Home from './screens/Home';
+import Explore from './screens/Explore';
+import Liked from './screens/Liked';
+import Saved from './screens/Saved';
+import Profile from './screens/Profile';
 
 function App() {
   return (
     <AppContainer>
       <AppContents>
-        <Home/>
+        {/* <Home/> */}
+        {/* <Explore/> */}
+        {/* <Liked/> */}
+        {/* <Saved/> */}
+        <Profile/>
       </AppContents>
     </AppContainer>
   );

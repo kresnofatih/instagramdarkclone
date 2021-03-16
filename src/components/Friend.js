@@ -24,7 +24,7 @@ export default Friend
 
 const FriendContainer = styled.div`
     padding: 10px 0;
-    background-color: var(--ig-dorange);
+    background-color: var(--ig-ddgray);
     display: flex;
     justify-content: space-between;
     align-items: center;
