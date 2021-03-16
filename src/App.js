@@ -1,13 +1,32 @@
 import React from 'react';
-import { Counter } from './features/counter/Counter';
 import './App.css';
+import styled from 'styled-components'
+import Home from './screens/Home';
 
 function App() {
   return (
-    <div className="App">
-      test
-    </div>
+    <AppContainer>
+      <AppContents>
+        <Home/>
+      </AppContents>
+    </AppContainer>
   );
 }
 
 export default App;
+
+const AppContainer = styled.div`
+  height: 100vh;
+  width: 100%;
+  color: white;
+  background-color: var(--ig-ddgray);
+  display: flex;
+  justify-content: center;
+`;
+
+const AppContents = styled.div`
+  width: 100%;
+  display:flex;
+  justify-content: center;
+  background-color: var(--ig-ddgray);
+`;
