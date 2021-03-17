@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Avatar from '@material-ui/core/Avatar';
-import AddIcon from '@material-ui/icons/Add';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
 
 function Friend() {
     return (
@@ -14,7 +14,7 @@ function Friend() {
                 </FriendLeftInfo>
             </FriendLeft>
             <FriendRight>
-                <AddIcon/>
+                follow
             </FriendRight>
         </FriendContainer>
     )
@@ -61,6 +61,11 @@ const FriendAvatar = styled(Avatar)`
 
 const FriendRight = styled.div`
     margin-right: 10px;
+
+    :hover {
+        color: var(--ig-lpurple);
+        cursor: pointer;
+    }
 
     > .MuiSvgIcon-root {
         :hover {

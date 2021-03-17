@@ -8,6 +8,7 @@ import HeaderExploreBtn from './HeaderExploreBtn';
 import HeaderLikedBtn from './HeaderLikedBtn';
 import HeaderSavedBtn from './HeaderSavedBtn';
 import HeaderProfileBtn from './HeaderProfileBtn';
+import HeaderPostBtn from './HeaderPostBtn';
 
 function Header() {
     const currentScreen = useSelector(getCurrentScreen);
@@ -20,6 +21,7 @@ function Header() {
                     <HeaderExploreBtn currentScreen={currentScreen}/>
                     <HeaderSavedBtn currentScreen={currentScreen}/>
                     <HeaderLikedBtn currentScreen={currentScreen}/>
+                    <HeaderPostBtn/>
                     <HeaderProfileBtn currentScreen={currentScreen}/>
                 </HeaderRight>
             </HeaderContainer>

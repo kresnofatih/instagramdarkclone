@@ -27,7 +27,8 @@ const HeaderProfileBtnContainer = styled.div`
     align-items: center;
 
     > .MuiSvgIcon-root {
-        font-size: 25px;
+        margin-top: 2px;
+        font-size: 26px;
     }
 `;
 
