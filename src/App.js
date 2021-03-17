@@ -6,17 +6,26 @@ import Explore from './screens/Explore';
 import Liked from './screens/Liked';
 import Saved from './screens/Saved';
 import Profile from './screens/Profile';
+import Login from './Login';
+import {useAuthState} from 'react-firebase-hooks/auth'
+import {auth} from './Fire'
+import AuthLoading from './AuthLoading';
 
 function App() {
+  const [account, loading] = useAuthState(auth);
   return (
     <AppContainer>
-      <AppContents>
-        {/* <Home/> */}
-        {/* <Explore/> */}
-        {/* <Liked/> */}
-        {/* <Saved/> */}
-        <Profile/>
-      </AppContents>
+      {!account ? (
+        <Login/>
+      ):(
+        <AppContents>
+          <Home/>
+          {/* <Explore/>
+          <Liked/>
+          <Saved/>
+          <Profile/> */}
+        </AppContents>
+      )}
     </AppContainer>
   );
 }
