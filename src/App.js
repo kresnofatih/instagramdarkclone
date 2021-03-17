@@ -10,8 +10,11 @@ import Login from './Login';
 import {useAuthState} from 'react-firebase-hooks/auth'
 import {auth} from './Fire'
 import AuthLoading from './AuthLoading';
+import { useSelector } from 'react-redux';
+import { getCurrentScreen } from './features/appSlice';
 
 function App() {
+  const currentScreen = useSelector(getCurrentScreen);
   const [account, loading] = useAuthState(auth);
   return (
     <AppContainer>
@@ -19,11 +22,21 @@ function App() {
         <Login/>
       ):(
         <AppContents>
-          <Home/>
-          {/* <Explore/>
-          <Liked/>
-          <Saved/>
-          <Profile/> */}
+          {currentScreen==='home' &&
+            <Home/>
+          }
+          {currentScreen==='explore' &&
+            <Explore/>
+          }
+          {currentScreen==='liked' &&
+            <Liked/>
+          }
+          {currentScreen==='saved' &&
+            <Saved/>
+          }
+          {currentScreen==='profile' &&
+            <Profile/>
+          }
         </AppContents>
       )}
     </AppContainer>

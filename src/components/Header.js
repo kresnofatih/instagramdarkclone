@@ -1,25 +1,26 @@
 import React from 'react'
 import styled from 'styled-components'
 import iglogo from '../iglogo.png'
-import HomeIcon from '@material-ui/icons/Home';
-import ExploreIcon from '@material-ui/icons/Explore';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import PersonOutlineOutlinedIcon from '@material-ui/icons/PersonOutlineOutlined';
+import { useSelector } from 'react-redux';
+import { getCurrentScreen } from '../features/appSlice';
+import HeaderHomeBtn from './HeaderHomeBtn';
+import HeaderExploreBtn from './HeaderExploreBtn';
+import HeaderLikedBtn from './HeaderLikedBtn';
+import HeaderSavedBtn from './HeaderSavedBtn';
+import HeaderProfileBtn from './HeaderProfileBtn';
 
 function Header() {
+    const currentScreen = useSelector(getCurrentScreen);
     return (
         <HeaderObject>
             <HeaderContainer>
                 <img src={iglogo} alt=""/>
                 <HeaderRight>
-                    <HomeIcon/>
-                    <ExploreIcon/>
-                    <NotificationsIcon/>
-                    <BookmarkBorderIcon/>
-                    <FavoriteBorderIcon/>
-                    <PersonOutlineOutlinedIcon/>
+                    <HeaderHomeBtn currentScreen={currentScreen}/>
+                    <HeaderExploreBtn currentScreen={currentScreen}/>
+                    <HeaderSavedBtn currentScreen={currentScreen}/>
+                    <HeaderLikedBtn currentScreen={currentScreen}/>
+                    <HeaderProfileBtn currentScreen={currentScreen}/>
                 </HeaderRight>
             </HeaderContainer>
         </HeaderObject>
