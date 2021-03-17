@@ -12,11 +12,12 @@ import {auth} from './Fire'
 import AuthLoading from './AuthLoading';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentScreen } from './features/appSlice';
-import { initializeUserDataInDb, listenToUserDataInDb, updateUserSlice } from './features/userSlice';
+import { getCurrentUser, initializeUserDataInDb, listenToUserDataInDb, updateUserSlice } from './features/userSlice';
 
 function App() {
+  const currentUser = useSelector(getCurrentUser);
   const currentScreen = useSelector(getCurrentScreen);
-  const [account, loading] = useAuthState(auth);
+  const [account] = useAuthState(auth);
   const dispatch = useDispatch();
   useEffect(()=>{
     listenToUserDataInDb(
@@ -30,23 +31,29 @@ function App() {
       {!account ? (
         <Login/>
       ):(
-        <AppContents>
-          {currentScreen==='home' &&
-            <Home/>
-          }
-          {currentScreen==='explore' &&
-            <Explore/>
-          }
-          {currentScreen==='liked' &&
-            <Liked/>
-          }
-          {currentScreen==='saved' &&
-            <Saved/>
-          }
-          {currentScreen==='profile' &&
-            <Profile/>
-          }
-        </AppContents>
+        <>
+        {currentUser.email!=='displayName@instagram.co.qa' ? (
+          <AppContents>
+            {currentScreen==='home' &&
+              <Home/>
+            }
+            {currentScreen==='explore' &&
+              <Explore/>
+            }
+            {currentScreen==='liked' &&
+              <Liked/>
+            }
+            {currentScreen==='saved' &&
+              <Saved/>
+            }
+            {currentScreen==='profile' &&
+              <Profile/>
+            }
+          </AppContents>
+        ):(
+          <AuthLoading/>
+        )}
+        </>
       )}
     </AppContainer>
   );

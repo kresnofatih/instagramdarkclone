@@ -3,15 +3,18 @@ import styled from 'styled-components'
 import Avatar from '@material-ui/core/Avatar';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import {auth} from '../Fire'
+import { useSelector } from 'react-redux';
+import { getCurrentUser } from '../features/userSlice';
 
 function HomeSideProfile() {
+    const currentUser = useSelector(getCurrentUser);
     return (
         <HomeSideProfileContainer>
             <HomeSideProfileLeft>
-                <HomeSideProfileAvatar src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/79014456-d15b-47a6-8d5b-36721863c970/de6dcmr-f1f3f16d-09a4-49a9-992e-2276cf5a66d3.jpg/v1/fill/w_300,h_300,q_75,strp/vinny__family_guy__square_by_jtbh2005_de6dcmr-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD0zMDAiLCJwYXRoIjoiXC9mXC83OTAxNDQ1Ni1kMTViLTQ3YTYtOGQ1Yi0zNjcyMTg2M2M5NzBcL2RlNmRjbXItZjFmM2YxNmQtMDlhNC00OWE5LTk5MmUtMjI3NmNmNWE2NmQzLmpwZyIsIndpZHRoIjoiPD0zMDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.YVlNDVxaW5fenKfHVaaR2K1PVijqd-ccw0Nq665ajmc" alt=""/>
+                <HomeSideProfileAvatar src={currentUser.photoURL} alt=""/>
                 <HomeSideProfileLeftInfo>
-                    <h3>kresnofatih_</h3>
-                    <p>kresnofatih_</p>
+                    <h3>{currentUser.displayName}</h3>
+                    <p>{currentUser.displayName}</p>
                 </HomeSideProfileLeftInfo>
             </HomeSideProfileLeft>
             <HomeSideProfileRight>
