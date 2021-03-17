@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import styled from 'styled-components'
 import Home from './screens/Home';
@@ -10,12 +10,21 @@ import Login from './Login';
 import {useAuthState} from 'react-firebase-hooks/auth'
 import {auth} from './Fire'
 import AuthLoading from './AuthLoading';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentScreen } from './features/appSlice';
+import { initializeUserDataInDb, listenToUserDataInDb, updateUserSlice } from './features/userSlice';
 
 function App() {
   const currentScreen = useSelector(getCurrentScreen);
   const [account, loading] = useAuthState(auth);
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    listenToUserDataInDb(
+      account, 
+      (userData)=>{dispatch(updateUserSlice(userData))},
+      (accountEmail)=>{initializeUserDataInDb(accountEmail)}
+    )
+  }, [account])
   return (
     <AppContainer>
       {!account ? (
