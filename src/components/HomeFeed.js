@@ -10,34 +10,41 @@ function HomeFeed() {
     const currentUser = useSelector(getCurrentUser);
     const [homeposts, setHomePosts] = useState([]);
     useEffect(()=>{
-        db
+        const followingPlusSelf = [currentUser.email].concat(currentUser.following);
+        const unsub = db
         .collection('posts')
-        .where('email', '==', 'kresnofatihimani.private@gmail.com')
+        .where('email', 'in', followingPlusSelf)
         .onSnapshot(snap=>{
             setHomePosts(snap.docs.map(doc=>doc.data()))
         })
+
+        return ()=>unsub();
     }, [])
     return (
-        <HomeFeedContainer>
-            {homeposts?.map(post=>(
-                <HomeFeedPost
-                    key={post.email+post.postId}
-                    displayName={post.displayName}
-                    email={post.email}
-                    imageURL={post.imageURL}
-                    photoURL={post.photoURL}
-                    postDesc={post.postDesc}
-                    postHashtags={post.postHashtags}
-                    postId={post.postId}
-                    postTags={post.postTags}
-                    timestamp={post.timestamp}
-                    usersLiked={post.usersLiked}
-                    usersSaved={post.usersSaved}
-                />
-            )).sort((a, b)=>{
-                return b?.props?.timestamp?.seconds-a?.props?.timestamp?.seconds;
-            })}
-        </HomeFeedContainer>
+        <>
+        {currentUser.following &&
+            <HomeFeedContainer>
+                {homeposts?.map(post=>(
+                    <HomeFeedPost
+                        key={post.email+post.postId}
+                        displayName={post.displayName}
+                        email={post.email}
+                        imageURL={post.imageURL}
+                        photoURL={post.photoURL}
+                        postDesc={post.postDesc}
+                        postHashtags={post.postHashtags}
+                        postId={post.postId}
+                        postTags={post.postTags}
+                        timestamp={post.timestamp}
+                        usersLiked={post.usersLiked}
+                        usersSaved={post.usersSaved}
+                    />
+                )).sort((a, b)=>{
+                    return b?.props?.timestamp?.seconds-a?.props?.timestamp?.seconds;
+                })}
+            </HomeFeedContainer>
+        }
+        </>
     )
 }
 
