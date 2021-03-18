@@ -1,10 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function ImageWrapper({imageUrl}) {
+function ImageWrapper({
+    imageURL,
+    email,
+    postId,
+    timestamp
+}) {
     return (
         <ImageWrapperContainer>
-            <img src={imageUrl} alt=""/>
+            <img src={imageURL} alt=""/>
         </ImageWrapperContainer>
     )
 }
@@ -19,8 +24,7 @@ const ImageWrapperContainer = styled.div`
     > img {
         opacity: 0.8;
         min-width: 100%;
-        min-height: 100%;
-        max-width: 150%;
+        height: 100%;
         top: 0;
         left: 0;
 

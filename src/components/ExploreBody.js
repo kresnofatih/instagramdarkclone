@@ -5,19 +5,7 @@ import ImageWrapper from './ImageWrapper'
 function ExploreBody() {
     return (
         <ExploreBodyContainer>
-            <ImageWrapper imageUrl={'https://m.media-amazon.com/images/I/51n-h22UWOL._AC_.jpg'}/>
-            <ImageWrapper imageUrl={'https://m.media-amazon.com/images/I/51n-h22UWOL._AC_.jpg'}/>
-            <ImageWrapper imageUrl={'https://m.media-amazon.com/images/I/51n-h22UWOL._AC_.jpg'}/>
-            <ImageWrapper imageUrl={'https://m.media-amazon.com/images/I/51n-h22UWOL._AC_.jpg'}/>
-            <ImageWrapper imageUrl={'https://m.media-amazon.com/images/I/51n-h22UWOL._AC_.jpg'}/>
-            <ImageWrapper imageUrl={'https://m.media-amazon.com/images/I/51n-h22UWOL._AC_.jpg'}/>
-            <ImageWrapper imageUrl={'https://m.media-amazon.com/images/I/51n-h22UWOL._AC_.jpg'}/>
-            <ImageWrapper imageUrl={'https://m.media-amazon.com/images/I/51n-h22UWOL._AC_.jpg'}/>
-            <ImageWrapper imageUrl={'https://m.media-amazon.com/images/I/51n-h22UWOL._AC_.jpg'}/>
-            <ImageWrapper imageUrl={'https://m.media-amazon.com/images/I/51n-h22UWOL._AC_.jpg'}/>
-            <ImageWrapper imageUrl={'https://m.media-amazon.com/images/I/51n-h22UWOL._AC_.jpg'}/>
-            <ImageWrapper imageUrl={'https://m.media-amazon.com/images/I/51n-h22UWOL._AC_.jpg'}/>
-            <ImageWrapper imageUrl={'https://m.media-amazon.com/images/I/51n-h22UWOL._AC_.jpg'}/>
+            
         </ExploreBodyContainer>
     )
 }

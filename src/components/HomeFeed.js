@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import HomeFeedPost from './HomeFeedPost'
-import {useCollection} from 'react-firebase-hooks/firestore'
 import { db } from '../Fire'
 import { useSelector } from 'react-redux'
 import { getCurrentUser } from '../features/userSlice'

@@ -5,16 +5,7 @@ import ImageWrapper from './ImageWrapper'
 function SavedBody() {
     return (
         <SavedBodyContainer>
-            <ImageWrapper imageUrl={'https://i.pinimg.com/originals/c7/71/d3/c771d38887d5f58210ad747450e6e3a0.png'}/>
-            <ImageWrapper imageUrl={'https://m.media-amazon.com/images/I/51n-h22UWOL._AC_.jpg'}/>
-            <ImageWrapper imageUrl={'https://i.pinimg.com/originals/c7/71/d3/c771d38887d5f58210ad747450e6e3a0.png'}/>
-            <ImageWrapper imageUrl={'https://m.media-amazon.com/images/I/51n-h22UWOL._AC_.jpg'}/>
-            <ImageWrapper imageUrl={'https://m.media-amazon.com/images/I/51n-h22UWOL._AC_.jpg'}/>
-            <ImageWrapper imageUrl={'https://i.pinimg.com/originals/c7/71/d3/c771d38887d5f58210ad747450e6e3a0.png'}/>
-            <ImageWrapper imageUrl={'https://m.media-amazon.com/images/I/51n-h22UWOL._AC_.jpg'}/>
-            <ImageWrapper imageUrl={'https://m.media-amazon.com/images/I/51n-h22UWOL._AC_.jpg'}/>
-            <ImageWrapper imageUrl={'https://i.pinimg.com/originals/c7/71/d3/c771d38887d5f58210ad747450e6e3a0.png'}/>
-            <ImageWrapper imageUrl={'https://m.media-amazon.com/images/I/51n-h22UWOL._AC_.jpg'}/>
+            
         </SavedBodyContainer>
     )
 }
