@@ -7,13 +7,25 @@ import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import Comment from './Comment';
 
-function HomeFeedPost() {
+function HomeFeedPost({
+    displayName,
+    email,
+    imageURL,
+    photoURL,
+    postDesc,
+    postHashtags,
+    postId,
+    postTags,
+    timestamp,
+    usersLiked,
+    usersSaved
+}) {
     return (
         <HomeFeedPostContainer>
             <HomeFeedPostHeader>
                 <HomeFeedPostHeaderLeft>
-                    <HomeFeedPostAvatar src="https://i.pinimg.com/474x/34/30/a0/3430a061b7435ef0c58b1eff94453556.jpg" alt=""/>
-                    <h3>yang.Terdalam</h3>
+                    <HomeFeedPostAvatar src={photoURL} alt=""/>
+                    <h3>{displayName}</h3>
                 </HomeFeedPostHeaderLeft>
 
                 <HomeFeedPostHeaderRight>
@@ -22,7 +34,7 @@ function HomeFeedPost() {
             </HomeFeedPostHeader>
 
             <HomeFeedPostImageContainer>
-                <img src="https://i.imgur.com/hlMIFj7.jpg" alt=""/>
+                <img src={imageURL} alt=""/>
             </HomeFeedPostImageContainer>
 
             <HomeFeedPostActions>
@@ -36,9 +48,9 @@ function HomeFeedPost() {
                 </HomeFeedPostActionsRight>
             </HomeFeedPostActions>
 
-            <h3>10,772 likes</h3>
+            <h3>{usersLiked?.length+' likes'}</h3>
             <HomeFeedPostDesc>
-                <h3>yang.Terdalam</h3><p>Good Anime! 😁</p>
+                <h3>{displayName}</h3><p>{postDesc}</p>
             </HomeFeedPostDesc>
 
             <HomeFeedCommentsContainer>
@@ -49,7 +61,7 @@ function HomeFeedPost() {
                 <Comment/>
                 <Comment/>
             </HomeFeedCommentsContainer>
-            <h4>Wed, 12 March 2021 21.23 WIB</h4>
+            <h4>{new Date(timestamp?.toDate()).toUTCString()}</h4>
         </HomeFeedPostContainer>
     )
 }
