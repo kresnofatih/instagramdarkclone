@@ -10,14 +10,12 @@ function HomeFeed() {
     const currentUser = useSelector(getCurrentUser);
     const [homeposts, setHomePosts] = useState([]);
     useEffect(()=>{
-        const unsub = db
+        db
         .collection('posts')
-        .orderBy('timestamp', 'desc')
+        .where('email', '==', 'kresnofatihimani.private@gmail.com')
         .onSnapshot(snap=>{
             setHomePosts(snap.docs.map(doc=>doc.data()))
         })
-
-        return ()=>unsub();
     }, [])
     return (
         <HomeFeedContainer>
@@ -36,7 +34,9 @@ function HomeFeed() {
                     usersLiked={post.usersLiked}
                     usersSaved={post.usersSaved}
                 />
-            ))}
+            )).sort((a, b)=>{
+                return b?.props?.timestamp?.seconds-a?.props?.timestamp?.seconds;
+            })}
         </HomeFeedContainer>
     )
 }

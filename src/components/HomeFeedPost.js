@@ -149,10 +149,11 @@ const HomeFeedPostAvatar = styled(Avatar)`
 const HomeFeedPostImageContainer = styled.div`
     display: flex;
     justify-content: center;
+    background-color: black;
 
     > img {
-        width: 100%;
-        max-height: 700px;
+        max-width: 100%;
+        max-height: 500px;
     }
 `;
 
