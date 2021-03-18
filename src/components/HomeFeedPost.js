@@ -56,10 +56,6 @@ function HomeFeedPost({
             <HomeFeedCommentsContainer>
                 <Comment/>
                 <Comment/>
-                <Comment/>
-                <Comment/>
-                <Comment/>
-                <Comment/>
             </HomeFeedCommentsContainer>
             <h4>{new Date(timestamp?.toDate()).toUTCString()}</h4>
         </HomeFeedPostContainer>

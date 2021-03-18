@@ -22,6 +22,7 @@ function ProfileBodyTabPosts() {
         <ProfileBodyTabPostsContainer>
             {profilePosts?.map(post=>(
                 <ImageWrapper
+                    key={post.email+post.postId}
                     imageURL={post.imageURL}
                     email={post.email}
                     postId={post.postId}

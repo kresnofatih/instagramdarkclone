@@ -18,7 +18,7 @@ function HomeFeed() {
         })
 
         return ()=>unsub();
-    }, [])
+    }, [currentUser])
     return (
         <>
         {currentUser.following &&

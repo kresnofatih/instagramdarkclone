@@ -1,5 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { db } from '../Fire';
+import firebase from 'firebase'
+
+export const followUser = async(email, currentUserEmail)=>{
+    await db.collection('users').doc(currentUserEmail).update({
+        following: firebase.firestore.FieldValue.arrayUnion(email)
+    });
+    await db.collection('users').doc(email).update({
+        followers: firebase.firestore.FieldValue.arrayUnion(currentUserEmail)
+    });
+}
+
+export const unfollowUser = async(email, currentUserEmail)=>{
+    await db.collection('users').doc(currentUserEmail).update({
+        following: firebase.firestore.FieldValue.arrayRemove(email)
+    });
+    await db.collection('users').doc(email).update({
+        followers: firebase.firestore.FieldValue.arrayRemove(currentUserEmail)
+    })
+}
 
 export const listenToUserDataInDb = (account, updateUserSlice, initializeUserDataInDb) =>{
     if(account!=null){

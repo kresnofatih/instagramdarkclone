@@ -2,20 +2,29 @@ import React from 'react'
 import styled from 'styled-components'
 import Avatar from '@material-ui/core/Avatar';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import { useSelector } from 'react-redux';
+import { followUser, getCurrentUser, unfollowUser } from '../features/userSlice';
 
-function Friend() {
+function Friend({email, displayName, photoURL}) {
+    const currentUser = useSelector(getCurrentUser);
     return (
         <FriendContainer>
             <FriendLeft>
-                <FriendAvatar src="https://i.imgur.com/hlMIFj7.jpg" alt=""/>
+                <FriendAvatar src={photoURL} alt=""/>
                 <FriendLeftInfo>
-                    <h3>kresnofatih_</h3>
-                    <p>kresnofatih_</p>
+                    <h3>{displayName}</h3>
+                    <p>{displayName}</p>
                 </FriendLeftInfo>
             </FriendLeft>
-            <FriendRight>
-                follow
-            </FriendRight>
+            {currentUser.following.includes(email) ? (
+                <FriendRight onClick={()=>{unfollowUser(email, currentUser.email)}}>
+                    unfollow
+                </FriendRight>
+            ):(
+                <FriendRight onClick={()=>{followUser(email, currentUser.email)}}>
+                    follow
+                </FriendRight>
+            )}
         </FriendContainer>
     )
 }
@@ -43,7 +52,7 @@ const FriendLeftInfo = styled.div`
     margin-left: 10px;
 
     > h3 {
-        font-size: 16px;
+        font-size: 14px;
         font-weight: 400;
     }
     > p {
@@ -59,10 +68,15 @@ const FriendAvatar = styled(Avatar)`
     }
 `;
 
-const FriendRight = styled.div`
+const FriendRight = styled.label`
     margin-right: 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid white;
 
     :hover {
+        border: 1px solid var(--ig-lpurple);
         color: var(--ig-lpurple);
         cursor: pointer;
     }

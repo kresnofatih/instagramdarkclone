@@ -24,7 +24,6 @@ function ConfigurePost({closeConfigurePost}) {
     const [file, setFile] = useState('');
     const [tempDesc, setTempDesc] = useState('Post Description. Start Typing. Enjoy 😁!');
     const [tempHashtags, setTempHashtags] = useState('#IGclone #IGpost #instagram');
-    const [tempTags, setTempTags] = useState('@fatih1st @instagramclone');
 
     const chooseImage = e =>{
         const file = e.target.files[0];
@@ -38,7 +37,7 @@ function ConfigurePost({closeConfigurePost}) {
     const submitPost = ()=>{
         if(file){
             setSubmitPostRunning(true);
-            storeToStg(file, currentUser.email, (url)=>submitPostToDb(url, currentUser, tempDesc, tempHashtags, tempTags, ()=>{
+            storeToStg(file, currentUser.email, (url)=>submitPostToDb(url, currentUser, tempDesc, tempHashtags, ()=>{
                 setSubmitPostRunning(false);
                 closeConfigurePost();
             }));
@@ -67,15 +66,6 @@ function ConfigurePost({closeConfigurePost}) {
                         helperText={tempDesc ? '': "Cannot be empty!"}
                         inputProps={{maxLength: 100}}
                         onChange={e=>setTempDesc(e.target.value)}
-                        variant="outlined"
-                    />
-                    <TextField
-                        id='outlined-basic'
-                        multiline
-                        label="Friends Tagged"
-                        value={tempTags}
-                        inputProps={{maxLength: 150}}
-                        onChange={e=>setTempTags(e.target.value)}
                         variant="outlined"
                     />
                     <TextField

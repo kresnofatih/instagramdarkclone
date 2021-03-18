@@ -13,7 +13,7 @@ export const storeToStg = (file, currentUserEmail, useUrl) => {
     });
 }
 
-export const submitPostToDb = async(url, currentUser, postDesc, postHashtags, postTags, additionalCallbacks)=> {
+export const submitPostToDb = async(url, currentUser, postDesc, postHashtags, additionalCallbacks)=> {
     await db.collection('posts').doc(currentUser.email+currentUser.nextId).set({
         displayName: currentUser.displayName,
         email: currentUser.email,
@@ -23,7 +23,6 @@ export const submitPostToDb = async(url, currentUser, postDesc, postHashtags, po
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         postDesc: postDesc,
         postHashtags: postHashtags.split(' '),
-        postTags: postTags.split(' '),
         usersLiked: [],
         usersSaved: []
     }).then(async()=>{

@@ -2,10 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import ProfileBox from './ProfileBox'
 import GridOnIcon from '@material-ui/icons/GridOn';
-import LocalOfferOutlinedIcon from '@material-ui/icons/LocalOfferOutlined';
-import ImageWrapper from './ImageWrapper';
 import ProfileBodyTabPosts from './ProfileBodyTabPosts';
-import ProfileBodyTabTagged from './ProfileBodyTabTagged';
 
 function ProfileBody() {
     const [tab, setTab] = useState('posts');
@@ -18,27 +15,11 @@ function ProfileBody() {
                         <ProfileBodyTabSelected>
                             <h3><GridOnIcon/>POSTS</h3>
                         </ProfileBodyTabSelected>
-                        <ProfileBodyTabUnselected onClick={()=>setTab('tagged')}>
-                            <h3><LocalOfferOutlinedIcon/>TAGGED</h3>
-                        </ProfileBodyTabUnselected>
-                    </>
-                }
-                {tab==='tagged' &&
-                    <>
-                        <ProfileBodyTabUnselected onClick={()=>setTab('posts')}>
-                            <h3><GridOnIcon/>POSTS</h3>
-                        </ProfileBodyTabUnselected>
-                        <ProfileBodyTabSelected>
-                            <h3><LocalOfferOutlinedIcon/>TAGGED</h3>
-                        </ProfileBodyTabSelected>
                     </>
                 }
             </ProfileBodyTabs>
             {tab==='posts' &&
                 <ProfileBodyTabPosts/>
-            }
-            {tab==='tagged' &&
-                <ProfileBodyTabTagged/>
             }
         </ProfileBodyContainer>
     )
