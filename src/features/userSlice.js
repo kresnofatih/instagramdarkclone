@@ -24,6 +24,7 @@ export const initializeUserDataInDb = async(accountEmail)=>{
         numOfNotifications: 0,
         followers: [],
         following: [],
+        nextId: 0,
         bio: 'I am '+accountEmail.split('@')[0]
     });
 }
@@ -38,6 +39,7 @@ export const userSlice = createSlice({
         numOfNotifications: 2,
         followers: [],
         following: [],
+        nextId: 34,
         bio: 'This is a sample userBio 😂'
     },
     reducers: {
@@ -50,5 +52,6 @@ export const userSlice = createSlice({
 export const { updateUserSlice } = userSlice.actions;
 
 export const getCurrentUser = state => state.user;
+export const getCurrentUserEmail = state => state.user.email;
 
 export default userSlice.reducer;
