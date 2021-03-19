@@ -32,9 +32,7 @@ function HomeFeed() {
                         photoURL={post.photoURL}
                         postDesc={post.postDesc}
                         postHashtags={post.postHashtags}
-                        postId={post.postId}
-                        postTags={post.postTags}
-                        timestamp={post.timestamp}
+                        postId={post.postId}                        timestamp={post.timestamp}
                         usersLiked={post.usersLiked}
                         usersSaved={post.usersSaved}
                     />

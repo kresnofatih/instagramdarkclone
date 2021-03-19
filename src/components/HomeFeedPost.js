@@ -9,6 +9,7 @@ import Comment from './Comment';
 import { useDispatch } from 'react-redux';
 import { updateFriendEmail } from '../features/friendSlice';
 import { openScreen } from '../features/appSlice';
+import LikeBtn from './LikeBtn';
 
 function HomeFeedPost({
     displayName,
@@ -18,7 +19,6 @@ function HomeFeedPost({
     postDesc,
     postHashtags,
     postId,
-    postTags,
     timestamp,
     usersLiked,
     usersSaved
@@ -46,7 +46,11 @@ function HomeFeedPost({
 
             <HomeFeedPostActions>
                 <HomeFeedPostActionsLeft>
-                    <FavoriteBorderIcon/>
+                    <LikeBtn 
+                        usersLiked={usersLiked} 
+                        email={email}
+                        postId={postId}
+                    />
                     <ChatBubbleOutlineIcon/>
                 </HomeFeedPostActionsLeft>
 
@@ -129,6 +133,10 @@ const HomeFeedPostHeaderLeft = styled.label`
     > .MuiAvatar-root {
         height: 30px;
         width: 30px;
+    }
+
+    :hover {
+        cursor: pointer;
     }
 `;
 
