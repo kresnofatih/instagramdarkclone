@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux';
 import { updateFriendEmail } from '../features/friendSlice';
 import { openScreen } from '../features/appSlice';
 import LikeBtn from './LikeBtn';
+import SaveBtn from './SaveBtn';
 
 function HomeFeedPost({
     displayName,
@@ -55,7 +56,11 @@ function HomeFeedPost({
                 </HomeFeedPostActionsLeft>
 
                 <HomeFeedPostActionsRight>
-                    <BookmarkBorderIcon/>
+                    <SaveBtn
+                        usersSaved={usersSaved}
+                        email={email}
+                        postId={postId}
+                    />
                 </HomeFeedPostActionsRight>
             </HomeFeedPostActions>
 
