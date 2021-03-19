@@ -13,6 +13,7 @@ import AuthLoading from './AuthLoading';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentScreen } from './features/appSlice';
 import { getCurrentUser, initializeUserDataInDb, listenToUserDataInDb, updateUserSlice } from './features/userSlice';
+import UserProfile from './screens/UserProfile';
 
 function App() {
   const currentUser = useSelector(getCurrentUser);
@@ -48,6 +49,9 @@ function App() {
             }
             {currentScreen==='profile' &&
               <Profile/>
+            }
+            {currentScreen==='friend' &&
+              <UserProfile/>
             }
           </AppContents>
         ):(

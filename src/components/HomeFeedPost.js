@@ -6,6 +6,9 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import Comment from './Comment';
+import { useDispatch } from 'react-redux';
+import { updateFriendEmail } from '../features/friendSlice';
+import { openScreen } from '../features/appSlice';
 
 function HomeFeedPost({
     displayName,
@@ -20,10 +23,14 @@ function HomeFeedPost({
     usersLiked,
     usersSaved
 }) {
+    const dispatch = useDispatch();
     return (
         <HomeFeedPostContainer>
             <HomeFeedPostHeader>
-                <HomeFeedPostHeaderLeft>
+                <HomeFeedPostHeaderLeft onClick={()=>{
+                    dispatch(updateFriendEmail({email: email}));
+                    dispatch(openScreen({screen: 'friend'}));
+                }}>
                     <HomeFeedPostAvatar src={photoURL} alt=""/>
                     <h3>{displayName}</h3>
                 </HomeFeedPostHeaderLeft>
@@ -108,7 +115,7 @@ const HomeFeedPostHeader = styled.div`
     align-items: center;
     `;
 
-const HomeFeedPostHeaderLeft = styled.div`
+const HomeFeedPostHeaderLeft = styled.label`
     margin-left: 20px;
     display: flex;
     align-items: center;

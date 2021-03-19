@@ -18,7 +18,6 @@ function Header() {
                 <img src={iglogo} alt=""/>
                 <HeaderRight>
                     <HeaderHomeBtn currentScreen={currentScreen}/>
-                    <HeaderExploreBtn currentScreen={currentScreen}/>
                     <HeaderSavedBtn currentScreen={currentScreen}/>
                     <HeaderLikedBtn currentScreen={currentScreen}/>
                     <HeaderPostBtn/>

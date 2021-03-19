@@ -1,49 +1,49 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import ProfileBox from './ProfileBox'
+import UserProfileBox from './UserProfileBox'
 import GridOnIcon from '@material-ui/icons/GridOn';
-import ProfileBodyTabPosts from './ProfileBodyTabPosts';
+import UserProfileBodyTabPosts from './UserProfileBodyTabPosts';
 
-function ProfileBody() {
+function UserProfileBody() {
     const [tab, setTab] = useState('posts');
     return (
-        <ProfileBodyContainer>
-            <ProfileBox/>
-            <ProfileBodyTabs>
+        <UserBodyContainer>
+            <UserProfileBox/>
+            <UserProfileBodyTabs>
                 {tab==='posts' &&
                     <>
-                        <ProfileBodyTabSelected>
+                        <UserProfileBodyTabSelected>
                             <h3><GridOnIcon/>POSTS</h3>
-                        </ProfileBodyTabSelected>
+                        </UserProfileBodyTabSelected>
                     </>
                 }
-            </ProfileBodyTabs>
+            </UserProfileBodyTabs>
             {tab==='posts' &&
-                <ProfileBodyTabPosts/>
+                <UserProfileBodyTabPosts/>
             }
-        </ProfileBodyContainer>
+        </UserBodyContainer>
     )
 }
 
-export default ProfileBody
+export default UserProfileBody
 
-const ProfileBodyContainer = styled.div`
+const UserBodyContainer = styled.div`
     height: calc(100vh - 71px);
     display: flex;
     flex-direction: column;
     overflow-y: auto;
     scrollbar-width: none;
     align-items: center;
-`
+`;
 
-const ProfileBodyTabs = styled.div`
+const UserProfileBodyTabs = styled.div`
     display: flex;
     justify-content: center;
     width: 100%;
     border-top: 1px solid gray;
-`
+`;
 
-const ProfileBodyTabSelected = styled.div`
+const UserProfileBodyTabSelected = styled.div`
     margin-top: -1px;
     padding: 10px 0;
     width: 150px;
@@ -62,7 +62,7 @@ const ProfileBodyTabSelected = styled.div`
         }
     } 
 `
-const ProfileBodyTabUnselected = styled.label`
+const UserProfileBodyTabUnselected = styled.label`
     margin-top: -1px;
     padding: 10px 0;
     width: 150px;

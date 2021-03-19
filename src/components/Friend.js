@@ -2,14 +2,20 @@ import React from 'react'
 import styled from 'styled-components'
 import Avatar from '@material-ui/core/Avatar';
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { followUser, getCurrentUser, unfollowUser } from '../features/userSlice';
+import { updateFriendEmail } from '../features/friendSlice'
+import { openScreen } from '../features/appSlice';
 
 function Friend({email, displayName, photoURL}) {
     const currentUser = useSelector(getCurrentUser);
+    const dispatch = useDispatch();
     return (
         <FriendContainer>
-            <FriendLeft>
+            <FriendLeft onClick={()=>{
+                dispatch(updateFriendEmail({email: email}));
+                dispatch(openScreen({screen: 'friend'}));
+            }}>
                 <FriendAvatar src={photoURL} alt=""/>
                 <FriendLeftInfo>
                     <h3>{displayName}</h3>
@@ -39,10 +45,14 @@ const FriendContainer = styled.div`
     align-items: center;
 `;
 
-const FriendLeft = styled.div`
+const FriendLeft = styled.label`
     margin-left: 10px;
     display: flex;
     align-items: center;
+
+    :hover {
+        cursor: pointer;
+    }
 `;
 
 const FriendLeftInfo = styled.div`
