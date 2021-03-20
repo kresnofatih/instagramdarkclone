@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import Avatar from '@material-ui/core/Avatar';
 
 function Comment({displayName, photoURL, text, timestamp}) {
-    console.log(timestamp);
     return (
         <CommentContainer>
             <div>

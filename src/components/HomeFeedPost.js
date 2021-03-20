@@ -83,6 +83,7 @@ function HomeFeedPost({
             <HomeFeedCommentsContainer>
                 {displayComments?.map(cmt=>(
                     <Comment
+                        key={cmt.displayName+cmt.text}
                         displayName={cmt.displayName}
                         photoURL={cmt.photoURL}
                         timestamp={cmt.timestamp}

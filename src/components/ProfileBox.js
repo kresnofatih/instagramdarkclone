@@ -4,6 +4,7 @@ import Avatar from '@material-ui/core/Avatar';
 import EditIcon from '@material-ui/icons/Edit';
 import { useSelector } from 'react-redux';
 import { getCurrentUser } from '../features/userSlice';
+import FollowList from './FollowList';
 
 function ProfileBox() {
     const currentUser = useSelector(getCurrentUser);
@@ -17,8 +18,8 @@ function ProfileBox() {
                 <h2>{currentUser.displayName}<EditIcon/></h2>
                 <ProfileBoxStats>
                     <h3>{currentUser.numOfPosts} <p>posts</p></h3>
-                    <h3>{currentUser.followers.length} <p>followers</p></h3>
-                    <h3>{currentUser.following.length} <p>following</p></h3>
+                    <h3>{currentUser.followers.length} <FollowList following={false} followList={currentUser.followers}/></h3>
+                    <h3>{currentUser.following.length} <FollowList following={true} followList={currentUser.following}/></h3>
                 </ProfileBoxStats>
                 <ProfileBoxBio>
                     {currentUser.bio}
@@ -70,7 +71,7 @@ const ProfileBoxStats = styled.div`
     > h3 {
         display: flex;
         margin-right: 20px;
-        color: var(--ig-lpurple);
+        color: white;
         font-weight: 700;
 
         > p {
@@ -92,4 +93,5 @@ const ProfileBoxBio = styled.div`
     overflow-y: hidden;
     height: 50px;
     width: 600px;
+    color: gray;
 `;

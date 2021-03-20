@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Avatar from '@material-ui/core/Avatar';
 import { useSelector } from 'react-redux';
 import { getCurrentFriend } from '../features/friendSlice';
+import FollowList from './FollowList';
 
 function UserProfileBox() {
     const currentFriend = useSelector(getCurrentFriend);
@@ -16,8 +17,8 @@ function UserProfileBox() {
                 <h2>{currentFriend.displayName}</h2>
                 <UserProfileBoxStats>
                     <h3>{currentFriend.numOfPosts} <p>posts</p></h3>
-                    <h3>{currentFriend.followers.length} <p>followers</p></h3>
-                    <h3>{currentFriend.following.length} <p>following</p></h3>
+                    <h3>{currentFriend.followers.length} <FollowList following={false} followList={currentFriend.followers}/></h3>
+                    <h3>{currentFriend.following.length} <FollowList following={true} followList={currentFriend.following}/></h3>
                 </UserProfileBoxStats>
                 <UserProfileBoxBio>
                     {currentFriend.bio}
@@ -69,7 +70,7 @@ const UserProfileBoxStats = styled.div`
     > h3 {
         display: flex;
         margin-right: 20px;
-        color: var(--ig-lpurple);
+        color: white;
         font-weight: 700;
 
         > p {
@@ -91,4 +92,5 @@ const UserProfileBoxBio = styled.div`
     overflow-y: hidden;
     height: 50px;
     width: 600px;
+    color: gray;
 `;
