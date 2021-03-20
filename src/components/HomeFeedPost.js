@@ -1,16 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Avatar from '@material-ui/core/Avatar';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
-import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import Comment from './Comment';
 import { useDispatch } from 'react-redux';
 import { updateFriendEmail } from '../features/friendSlice';
 import { openScreen } from '../features/appSlice';
 import LikeBtn from './LikeBtn';
 import SaveBtn from './SaveBtn';
+import CommentBtn from './CommentBtn';
+import { db } from '../Fire';
 
 function HomeFeedPost({
     displayName,
@@ -25,6 +24,16 @@ function HomeFeedPost({
     usersSaved
 }) {
     const dispatch = useDispatch();
+    const [displayComments, setDisplayComments] = useState([])
+    useEffect(()=>{
+        const unsubComments = db.collection('posts')
+        .doc(email+postId).collection('comments').orderBy('timestamp', 'desc')
+        .limit(3).onSnapshot(snap=>{
+            setDisplayComments(snap?.docs?.map(doc=>doc.data()));
+        })
+
+        return ()=>unsubComments();
+    }, [])
     return (
         <HomeFeedPostContainer>
             <HomeFeedPostHeader>
@@ -52,7 +61,10 @@ function HomeFeedPost({
                         email={email}
                         postId={postId}
                     />
-                    <ChatBubbleOutlineIcon/>
+                    <CommentBtn
+                        email={email}
+                        postId={postId}
+                    />
                 </HomeFeedPostActionsLeft>
 
                 <HomeFeedPostActionsRight>
@@ -68,10 +80,15 @@ function HomeFeedPost({
             <HomeFeedPostDesc>
                 <h3>{displayName}</h3><p>{postDesc}</p>
             </HomeFeedPostDesc>
-
             <HomeFeedCommentsContainer>
-                <Comment/>
-                <Comment/>
+                {displayComments?.map(cmt=>(
+                    <Comment
+                        displayName={cmt.displayName}
+                        photoURL={cmt.photoURL}
+                        timestamp={cmt.timestamp}
+                        text={cmt.text}
+                    />
+                ))}
             </HomeFeedCommentsContainer>
             <h4>{new Date(timestamp?.toDate()).toUTCString()}</h4>
         </HomeFeedPostContainer>

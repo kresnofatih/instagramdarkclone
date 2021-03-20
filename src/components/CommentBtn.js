@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Backdrop from '@material-ui/core/Backdrop';
 import { makeStyles } from '@material-ui/core/styles';
+import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import PostViewer from './PostViewer';
 import { updatePostViewerDocId } from '../features/postviewerSlice';
 import { useDispatch } from 'react-redux';
@@ -13,12 +14,7 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-function ImageWrapper({
-    imageURL,
-    email,
-    postId,
-    timestamp
-}) {
+function CommentBtn({email, postId}) {
     const dispatch = useDispatch();
     const classes = useStyles();
     const [open, setOpen] = useState(false);
@@ -30,12 +26,12 @@ function ImageWrapper({
     };
     return (
         <>
-        <ImageWrapperContainer onClick={()=>{
-            dispatch(updatePostViewerDocId({email: email, postId: postId}));
-            handleToggle();
-        }}>
-            <img src={imageURL} alt=""/>
-        </ImageWrapperContainer>
+        <CommentBtnContainer>
+            <ChatBubbleOutlineIcon onClick={()=>{
+                dispatch(updatePostViewerDocId({email: email, postId: postId}));
+                handleToggle();
+            }}/>
+        </CommentBtnContainer>
         {open &&
             <Backdrop className={classes.backdrop} open={open}>
                 <PostViewer closeAction={handleClose}/>
@@ -45,23 +41,13 @@ function ImageWrapper({
     )
 }
 
-export default ImageWrapper
+export default CommentBtn
 
-const ImageWrapperContainer = styled.label`
-    overflow: hidden;
-    height: 320px;
-    width: 320px;
-    
-    > img {
-        opacity: 0.8;
-        min-width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-
+const CommentBtnContainer = styled.div`
+    > .MuiSvgIcon-root {
         :hover {
             cursor: pointer;
-            opacity: 1;
+            color: var(--ig-lpurple);
         }
     }
 `;
