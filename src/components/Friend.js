@@ -27,9 +27,13 @@ function Friend({email, displayName, photoURL}) {
                     unfollow
                 </FriendRight>
             ):(
-                <FriendRight onClick={()=>{followUser(email, currentUser.email)}}>
-                    follow
-                </FriendRight>
+                <>
+                {email!==currentUser.email &&
+                    <FriendRight onClick={()=>{followUser(email, currentUser.email)}}>
+                        follow
+                    </FriendRight>
+                }
+                </>
             )}
         </FriendContainer>
     )
