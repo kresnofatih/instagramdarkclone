@@ -9,6 +9,8 @@ import SendIcon from '@material-ui/icons/Send';
 import { getCurrentUser } from '../features/userSlice';
 import { db } from '../Fire';
 import { commentPost } from '../actions/CommentActions';
+import LikeBtn from './LikeBtn';
+import SaveBtn from './SaveBtn'
 
 function PostViewer({closeAction}) {
     const currentPostViewerDocId = useSelector(getCurrentPostViewerDocId);
@@ -61,7 +63,6 @@ function PostViewer({closeAction}) {
                             <p>{ht}</p>
                         ))}
                     </h5>
-                    <h6>{new Date(currentPostViewer?.timestamp?.toDate()).toUTCString()}</h6>
                     <CloseIcon onClick={()=>{
                         closeAction();
                     }}/>
@@ -78,21 +79,36 @@ function PostViewer({closeAction}) {
                         return b?.props?.timestamp?.seconds-a?.props?.timestamp?.seconds;
                     })}
                 </PostViewerComments>
-                <PostACommentBox>
-                    <Avatar src={currentUser.photoURL} alt=""/>
-                    <input 
-                        onChange={e=>setNewCommment(e.target.value)}
-                        value={newComment}
-                        placeholder="Type A New Comment"
-                        autoFocus
-                    />
-                    <SendIcon
-                        onClick={()=>{
-                            commentPost(currentUser, currentPostViewerDocId, newComment);
-                            setNewCommment('');
-                        }}
-                    />
-                </PostACommentBox>
+                <PostViewerActions>
+                    <PostViewerStats>
+                        <LikeBtn 
+                            usersLiked={currentPostViewer?.usersLiked} 
+                            email={currentPostViewer?.email} 
+                            postId={currentPostViewer?.postId}
+                        />
+                        <SaveBtn
+                            usersSaved={currentPostViewer?.usersSaved} 
+                            email={currentPostViewer?.email} 
+                            postId={currentPostViewer?.postId}
+                        />
+                    </PostViewerStats>
+                    <h6>{new Date(currentPostViewer?.timestamp?.toDate()).toUTCString()}</h6>
+                    <PostACommentBox>
+                        <Avatar src={currentUser.photoURL} alt=""/>
+                        <input 
+                            onChange={e=>setNewCommment(e.target.value)}
+                            value={newComment}
+                            placeholder="Type A New Comment"
+                            autoFocus
+                        />
+                        <SendIcon
+                            onClick={()=>{
+                                commentPost(currentUser, currentPostViewerDocId, newComment);
+                                setNewCommment('');
+                            }}
+                        />
+                    </PostACommentBox>
+                </PostViewerActions>
             </PostViewerDetails>
 
         </PostViewerContainer>
@@ -105,6 +121,35 @@ const PostViewerContainer = styled.div`
     display: flex;
     width: 1000px;
     height: 80vh;
+`;
+
+const PostViewerStats = styled.div`
+    margin: 5px 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    > div {
+        margin-right: 5px;
+    }
+`;
+
+const PostViewerActions = styled.div`
+    padding-top: 5px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(255,255,255, 0.1);
+
+    > h6 {
+        margin: 10px 0;
+        margin-left: 20px;
+        font-weight: 200;
+        font-size: 14px;
+        color: gray;
+    }
 `;
 
 const PostViewerImg = styled.div`
@@ -133,16 +178,14 @@ const PostViewerDetails = styled.div`
 `;
 
 const PostACommentBox = styled.div`
-    position: absolute;
-    bottom: 0;
     height: 50px;
-    width: 100%;
+    /* width: 100%; */
     padding: 10px 0;
     color: white;
     display: flex;
     align-items: center;
     background-color: var(--ig-ddgray);
-    border-top: 1px solid rgba(255,255,255, 0.1);
+
 
     > input {
         flex-grow: 1;
@@ -201,13 +244,6 @@ const PostViewerDetailsBox = styled.div`
         > p {
             margin-right: 5px;
         }
-    }
-
-    > h6 {
-        margin: 10px 0;
-        font-weight: 200;
-        font-size: 14px;
-        color: gray;
     }
 `;
 

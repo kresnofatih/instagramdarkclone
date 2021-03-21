@@ -8,7 +8,7 @@ import { likePost, unlikePost } from '../actions/LikeActions';
 
 function LikeBtn({usersLiked, email, postId}) {
     const currentUserEmail = useSelector(getCurrentUserEmail);
-    const liked = usersLiked.includes(currentUserEmail);
+    const liked = usersLiked?.includes(currentUserEmail);
     return (
         <LikeBtnContainer>
             {liked ? (

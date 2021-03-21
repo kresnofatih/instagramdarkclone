@@ -8,7 +8,7 @@ import { savePost, unsavePost } from '../actions/SaveActions';
 
 function SaveBtn({usersSaved, email, postId}) {
     const currentUserEmail = useSelector(getCurrentUserEmail);
-    const saved = usersSaved.includes(currentUserEmail);
+    const saved = usersSaved?.includes(currentUserEmail);
     return (
         <SaveBtnContainer>
             {saved ? (
