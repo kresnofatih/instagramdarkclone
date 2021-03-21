@@ -31,6 +31,10 @@ function SearchBar() {
                 onChange={e=>setSearchKeyword(e.target.value)}
                 value={searchKeyword}
                 placeholder="Search DisplayNames"
+                onBlur={()=>{
+                    setHasResults(false);
+                    setSearchKeyword('');
+                }}
             />
             {hasResults && searchResults?.map(user=>(
                 <Friend
@@ -49,7 +53,7 @@ const SearchBarContainer = styled.div`
     width: 300px;
     position: absolute;
     top: 0;
-    background-color: var(--ig-dgray);
+    /* background-color: var(--ig-dgray); */
     padding: 10px 0;
     display: flex;
     flex-direction: column;
@@ -57,9 +61,9 @@ const SearchBarContainer = styled.div`
     > input {
         border: none;
         border-radius: 5px;
-        background-color: var(--ig-ddgray);
+        background-color: white;
         outline: none;
         padding: 5px 20px;
-        color: white;
+        color: var(--ig-ddgray);
     }
 `;

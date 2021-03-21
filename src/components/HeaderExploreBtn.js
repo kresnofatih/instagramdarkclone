@@ -32,7 +32,7 @@ const HeaderExploreBtnContainer = styled.div`
 `;
 
 const ExploreSelected = styled(ExploreIcon)`
-    color: var(--ig-lpurple);
+    /* color: var(--ig-lpurple); */
 `;
 const ExploreUnselected = styled(ExploreOutlinedIcon)`
     :hover {

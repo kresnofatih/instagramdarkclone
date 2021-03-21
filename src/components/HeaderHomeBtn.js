@@ -32,7 +32,7 @@ const HeaderHomeBtnContainer = styled.div`
 `;
 
 const HomeSelected = styled(HomeIcon)`
-    color: var(--ig-lpurple);
+    /* color: var(--ig-lpurple); */
 `;
 const HomeUnselected = styled(HomeOutlinedIcon)`
     :hover {

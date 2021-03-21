@@ -33,7 +33,7 @@ const HeaderProfileBtnContainer = styled.div`
 `;
 
 const ProfileSelected = styled(PersonIcon)`
-    color: var(--ig-lpurple);
+    /* color: var(--ig-lpurple); */
 `;
 const ProfileUnselected = styled(PersonOutlineIcon)`
     :hover {

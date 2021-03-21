@@ -126,7 +126,7 @@ const ConfigurePostDetails = styled.div`
     justify-content: space-between;
 
     > .MuiBackdrop-root > .MuiCircularProgress-colorPrimary {
-        color: var(--ig-lpurple);
+        color: var(--ig-yellow);
     }
 
 `;
@@ -149,7 +149,8 @@ const ConfigurePostDetailsBox = styled.div`
         padding-right: 15px;
         display: flex;
         align-items: center;
-        background-color: var(--ig-lpurple);
+        /* background-color: var(--ig-lpurple); */
+        background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
         border-radius: 50ch;
 
         :hover {
@@ -213,7 +214,8 @@ const SubmitPostBtn = styled.label`
     padding-right: 15px;
     display: flex;
     align-items: center;
-    background-color: var(--ig-lpurple);
+    /* background-color: var(--ig-lpurple); */
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
     border-radius: 50ch;
 
     :hover {

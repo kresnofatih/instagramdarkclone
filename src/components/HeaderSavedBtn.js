@@ -32,7 +32,7 @@ const HeaderSavedBtnContainer = styled.div`
 `;
 
 const SavedSelected = styled(BookmarkIcon)`
-    color: var(--ig-lpurple);
+    /* color: var(--ig-lpurple); */
 `;
 
 const SavedUnselected = styled(BookmarkBorderIcon)`
