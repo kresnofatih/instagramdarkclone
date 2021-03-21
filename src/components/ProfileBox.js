@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import Avatar from '@material-ui/core/Avatar';
-import EditIcon from '@material-ui/icons/Edit';
 import { useSelector } from 'react-redux';
 import { getCurrentUser } from '../features/userSlice';
 import FollowList from './FollowList';
+import EditProfile from './EditProfile';
 
 function ProfileBox() {
     const currentUser = useSelector(getCurrentUser);
@@ -15,7 +15,7 @@ function ProfileBox() {
                 alt=""
             />
             <ProfileBoxInfo>
-                <h2>{currentUser.displayName}<EditIcon/></h2>
+                <h2>{currentUser.displayName}<EditProfile/></h2>
                 <ProfileBoxStats>
                     <h3>{currentUser.numOfPosts} <p>posts</p></h3>
                     <h3>{currentUser.followers.length} <FollowList following={false} followList={currentUser.followers}/></h3>
@@ -47,7 +47,7 @@ const ProfileBoxInfo = styled.div`
     margin-left: 20px;
 
     > h2 {
-        margin-bottom: 5px;
+        margin-bottom: 0px;
         display: flex;
         align-items: center;
 

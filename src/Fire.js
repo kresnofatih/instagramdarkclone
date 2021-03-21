@@ -2,13 +2,13 @@ import firebase from 'firebase'
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyBy-77ur0CIisZnYMhm_MRaEZevwwyPysY",
-    authDomain: "instagramdarkclone.firebaseapp.com",
-    projectId: "instagramdarkclone",
-    storageBucket: "instagramdarkclone.appspot.com",
-    messagingSenderId: "737634457830",
-    appId: "1:737634457830:web:1f1073206a307b16e98327",
-    measurementId: "G-FL278LGRN6"
+    apiKey: process.env.REACT_APP_APIKEY,
+    authDomain: process.env.REACT_APP_AUTHDOMAIN,
+    projectId: process.env.REACT_APP_PROJECTID,
+    storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+    messagingSenderId: process.env.REACT_APP_MSGSENDERID,
+    appId: process.env.REACT_APP_APPID,
+    measurementId: process.env.REACT_APP_MSRID
   };
 
   const fire = firebase.initializeApp(firebaseConfig);
