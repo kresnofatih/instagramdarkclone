@@ -32,7 +32,7 @@ function SearchBar() {
                 value={searchKeyword}
                 placeholder="Search DisplayNames"
                 onBlur={()=>{
-                    setHasResults(false);
+                    // setHasResults(false);
                     setSearchKeyword('');
                 }}
             />

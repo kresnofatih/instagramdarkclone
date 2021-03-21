@@ -19,7 +19,7 @@ function HomeSideSuggest() {
         })
 
         return ()=>unsub();
-    })
+    }, [])
     return (
         <HomeSideSuggestContainer>
             <HomeSideSuggestHead>

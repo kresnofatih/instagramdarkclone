@@ -38,7 +38,7 @@ function SavedBody() {
 export default SavedBody
 
 const SavedBodyContainer = styled.div`
-    height: calc(100vh - 71px);
+    max-height: calc(100vh - 71px);
     padding-top: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

@@ -17,7 +17,7 @@ function UserProfileBodyTabPosts() {
         })
 
         return ()=>unsub();
-    })
+    }, [])
     return (
         <UserProfileBodyTabPostsContainer>
             {userProfilePosts?.map(post=>(
