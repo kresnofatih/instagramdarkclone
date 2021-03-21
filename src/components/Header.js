@@ -9,11 +9,13 @@ import HeaderLikedBtn from './HeaderLikedBtn';
 import HeaderSavedBtn from './HeaderSavedBtn';
 import HeaderProfileBtn from './HeaderProfileBtn';
 import HeaderPostBtn from './HeaderPostBtn';
+import SearchBar from './SearchBar';
 
 function Header() {
     const currentScreen = useSelector(getCurrentScreen);
     return (
         <HeaderObject>
+            <SearchBar/>
             <HeaderContainer>
                 <img src={iglogo} alt=""/>
                 <HeaderRight>

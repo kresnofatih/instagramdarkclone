@@ -1,6 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { db } from '../Fire';
 
+export const browseDisplayName = async(searchKeyword, callback, emptyCallback)=>{
+    if(searchKeyword){
+        const users = await db.collection('users').where('displayName', '==', searchKeyword).get();
+        if(!users.empty){
+            const datas = users.docs;
+            callback(datas);
+        } else {
+            emptyCallback();
+        }
+    } else {
+        emptyCallback();
+    }
+}
+
 export const listenToFriendDataInDb = (friendEmail, updateFriendSlice)=>{
     if(friendEmail){
         db.collection('users').doc(friendEmail).onSnapshot(snap=>{
