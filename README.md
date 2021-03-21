@@ -1,68 +1,43 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# Instagram Dark Clone
 
-## Available Scripts
+Access the deployed web [app](https://igclone-e6728.web.app).
 
-In the project directory, you can run:
+## About The Project
 
-### `npm start`
+It is a web application that clones the instagram but with a dark theme.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Login with Google
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+You will need to login to experience the features of this build.
 
-### `npm test`
+![login](https://firebasestorage.googleapis.com/v0/b/igclone-e6728.appspot.com/o/app%2Figclone%20login.PNG?alt=media&token=24cebf09-dcf8-4b0c-b65d-8b54a51803bc)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Home Page
 
-### `npm run build`
+You will have your home page empty at first but you can start following other users to fill the home page feed.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![home](https://firebasestorage.googleapis.com/v0/b/igclone-e6728.appspot.com/o/app%2Figclone%20home.PNG?alt=media&token=d8d7d42e-50c0-4c0c-a842-8818cb54093e)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Start Posting
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+You can post by clicking the camera button on the headerRight. An overlay interface will appear for you to create your post. You can upload an image and edit the description and hashtags of the post before submitting.
 
-### `npm run eject`
+![post](https://firebasestorage.googleapis.com/v0/b/igclone-e6728.appspot.com/o/app%2Figclone%20post.PNG?alt=media&token=a0cdc768-cece-447f-8af0-ce777ef31d47)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Like, Save, and Comment A Post
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+You can like and save. You'll find your saved and liked posts available for later viewing in the headerRight. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Here is how the saved page looks like:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![saved](https://firebasestorage.googleapis.com/v0/b/igclone-e6728.appspot.com/o/app%2Figclone%20saved.PNG?alt=media&token=f8c471f1-30db-4758-acae-bc2d02fe007f)
 
-## Learn More
+Here is how you submit a comment on a post:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![comment](https://firebasestorage.googleapis.com/v0/b/igclone-e6728.appspot.com/o/app%2Figclone%20comment.png?alt=media&token=0e6cbb20-4556-4f8b-a837-a928fabac52d)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Profile Page
 
-### Code Splitting
+On your own profile page, you can edit your displayName, bio, and upload your own profile picture. See others' profile page and review what they have been posting!
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+![profile](https://firebasestorage.googleapis.com/v0/b/igclone-e6728.appspot.com/o/app%2Figclone%20profile.PNG?alt=media&token=fb7d5f7a-02de-4422-92b6-c591c5fda77f)
