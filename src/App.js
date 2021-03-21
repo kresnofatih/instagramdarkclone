@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getCurrentScreen } from './features/appSlice';
 import { getCurrentUser, initializeUserDataInDb, listenToUserDataInDb, updateUserSlice } from './features/userSlice';
 import UserProfile from './screens/UserProfile';
+import {Helmet} from 'react-helmet';
 
 function App() {
   const currentUser = useSelector(getCurrentUser);
@@ -30,7 +31,12 @@ function App() {
   return (
     <AppContainer>
       {!account ? (
+        <>
+        <Helmet>
+          <title>Instagram Clone</title>
+        </Helmet>
         <Login/>
+        </>
       ):(
         <>
         {currentUser.email!=='displayName@instagram.co.qa' ? (
